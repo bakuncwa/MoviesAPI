@@ -1,0 +1,35 @@
+meta {
+  name: Get all movies
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/movies
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+tests {
+  test("returns 200", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("returns a JSON array of movies", function () {
+    expect(res.getBody()).to.be.an("array");
+  });
+
+  test("each movie has its title, genre and audience rating", function () {
+    for (const movie of res.getBody()) {
+      expect(movie.id).to.be.a("number");
+      expect(movie.title).to.be.a("string").and.not.be.empty;
+      expect(movie.genre).to.have.property("name");
+      expect(movie.audienceRating).to.have.property("name");
+      expect(movie.reviewCount).to.be.at.least(0);
+    }
+  });
+}
