@@ -4,3 +4,8 @@ GET {{MoviesAPI_HostAddress}}/api/movies
 Accept: application/json
 
 ###
+
+GET {{MoviesAPI_HostAddress}}/api/usersnapshots
+Accept: application/json
+
+###

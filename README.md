@@ -11,6 +11,7 @@ client-facing site.
 | Method | Route         | Returns                                                                          |
 |--------|---------------|----------------------------------------------------------------------------------|
 | GET    | `/api/movies` | Every movie with its genre, audience rating, director, studio, poster, trailer, and published review stats |
+| GET    | `/api/usersnapshots` | The admin app's UserSnapshot table: each Auth0 user's name, email, roles and login times (Development only) |
 
 ## Running locally
 
